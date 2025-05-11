@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import userInfoContext from "./context/UserInfoContext";
+import BlogPage from "./components/BlogPage";
 
 function App() {
+  const userInfo = {
+    username: "Admin",
+    isAdmin: true,
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <userInfoContext.Provider value={userInfo}>
+      <BlogPage></BlogPage>
+    </userInfoContext.Provider>
   );
 }
 
